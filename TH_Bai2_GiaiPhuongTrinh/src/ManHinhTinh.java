@@ -96,25 +96,26 @@ public class ManHinhTinh extends JFrame {
 		double soA = Double.parseDouble(str_A);
 		double soB = Double.parseDouble(str_B);
 		double soC = Double.parseDouble(str_C);
+		String ketqua;
 		//Tính
 		if(soA == 0) {
 			if(soB == 0) {
 				if(soC == 0) {
-					txtKQ.setText("Phương trình vô số nghiệm")
+					ketqua = "Phương trình vô số nghiệm";
 				}else {
-					txtKQ.setText("Phương trình vô nghiệm");
+					ketqua = "Phương trình vô nghiệm";
 				}
 			}else {
-				txtKQ.setText(String.valueOf(-soC / soB));
+				ketqua = String.valueOf(-soC / soB);
 			}
 		}else {
 			double delta = soB * soB - 4 * soA * soC;
-			if(delta < 0) txtKQ.setText("Phương trình vô nghiệm");
-			else if(delta == 0) txtKQ.setText(String.valueOf(-soB / (2 * soA)));
+			if(delta < 0) ketqua = "Phương trình vô nghiệm";
+			else if(delta == 0) ketqua = String.valueOf(-soB / (2 * soA));
 			else {
-				txtKQ.setText(String.valueOf((-soB + Math.sqrt(delta))/(2 * soA)) + String.valueOf((-soB - Math.sqrt(delta))/(2 * soA)));
+				ketqua ="x1:" + String.valueOf((-soB + Math.sqrt(delta))/(2 * soA)) + " ,x2:" + String.valueOf((-soB - Math.sqrt(delta))/(2 * soA));
 			}
 		}
-		
+		txtKQ.setText(ketqua);
 	}
 }
